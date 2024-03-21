@@ -1,0 +1,29 @@
+$successColor: #316FEA;
+$hoverSuccessColor: #265cc5;
+$errorColor: #e13b3b;
+
+%inputField {
+    height: 48px;
+    border-radius: 6px;
+    border: 1.2px solid #D3D8DC;
+    outline: none;
+}
+
+%btn-base-active {
+    width:100%;
+    height:48px;
+    background: $successColor;
+    color: white;
+    border: 1px solid $successColor;
+    outline: none; 
+    border-radius: 6px;
+    cursor: pointer;
+
+
+    &:hover {  
+        background-color: $hoverSuccessColor;
+        border-color: $hoverSuccessColor;
+        transition: all .5s;
+    }
+
+}

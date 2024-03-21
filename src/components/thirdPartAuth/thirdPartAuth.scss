@@ -1,0 +1,27 @@
+@import "../styles/variables.scss";
+
+.auth-container {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    grid-gap: 12px;
+
+    .auth-item {
+        @extend %inputField;
+        width:50%;  
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        grid-gap:8px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #e9effb;
+        }
+    }
+
+    .auth-logo {
+        width: 18px;
+    }
+}

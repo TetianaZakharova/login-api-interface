@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Google",
+        "img": "https://portal.qencode.com/img/google_logo.svg"
+    },
+    {
+        "id": 2,
+        "name": "GitHub",
+        "img": "https://portal.qencode.com/img/github_logo.svg"
+    }
+]
