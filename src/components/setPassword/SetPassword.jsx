@@ -4,7 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "../../api/axios";
 import { SET_PASSWORD } from "../../api/apiUrls";
 import { PWD_REGEX } from "../../helpers/regex";
-import './setPassword.scss'
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import "./setPassword.scss";
 
 export const SetPassword = () => {
   const { setAuth } = useContext(AuthContext);
@@ -25,18 +26,19 @@ export const SetPassword = () => {
   const [validPassword, setValidPassword] = useState(false);
   const [validMatch, setValidMatch] = useState(false);
   const [errMsg, setErrMsg] = useState("");
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     setValidPassword(PWD_REGEX.test(inputData.password));
     setValidMatch(inputData.password === inputData.matchPassword);
-    setErrMsg('');
+    setErrMsg("");
   }, [inputData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputData((prev) => ({ ...prev, [name]: value }));
 
-    if (!value) {   
+    if (!value) {
       setValidation((prev) => ({
         ...prev,
         [name]: `This field is required`,
@@ -89,13 +91,15 @@ export const SetPassword = () => {
         {errMsg}
       </p>
       <form onSubmit={handleSubmit} className="loginform setpswform">
-        <div>
-          <label htmlFor="password" className="input-label">Password:</label>
+        <div className="psw-wrap">
+          <label htmlFor="password" className="input-label">
+            Password:
+          </label>
           <input
-            type="password"
+            type={visible ? "test" : "password"}
             id="password"
             name="password"
-            className="login-input setpwd"            
+            className="login-input setpwd"
             onChange={handleInputChange}
             value={inputData.password}
             required
@@ -103,6 +107,13 @@ export const SetPassword = () => {
             aria-invalid={validPassword ? "false" : "true"}
             aria-describedby="pwdnote"
           />
+          <div onClick={() => setVisible(!visible)}>
+            {visible ? (
+              <FiEyeOff className="psw-icon" />
+            ) : (
+              <FiEye className="psw-icon" />
+            )}
+          </div>
           <p className="psw-err">{validation.password}</p>
           <p id="pwdnote" className="psw-err">
             {!validPassword && inputData.password
@@ -112,13 +123,15 @@ export const SetPassword = () => {
               : ``}
           </p>
         </div>
-        <div>
-          <label htmlFor="matchPassword" className="input-label">Confirm Password:</label>
+        <div className="psw-wrap">
+          <label htmlFor="matchPassword" className="input-label">
+            Confirm Password:
+          </label>
           <input
-            type="password"
+            type={visible ? "test" : "password"}
             id="matchPassword"
             name="matchPassword"
-            className="login-input setpwd"       
+            className="login-input setpwd"
             onChange={handleInputChange}
             value={inputData.matchPassword}
             required
@@ -126,6 +139,13 @@ export const SetPassword = () => {
             aria-invalid={validMatch ? "false" : "true"}
             aria-describedby="confirmnote"
           />
+          <div onClick={() => setVisible(!visible)}>
+            {visible ? (
+              <FiEyeOff className="psw-icon" />
+            ) : (
+              <FiEye className="psw-icon" />
+            )}
+          </div>
           <p className="psw-err">{validation.matchPassword}</p>
           <p id="pwdnote" className="psw-err">
             {!validMatch && inputData.matchPassword

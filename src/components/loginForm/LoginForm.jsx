@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../api/axios";
 import { LOGIN_URL } from "../../api/apiUrls";
 import { EMAIL_REGEX, PWD_REGEX } from "../../helpers/regex";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 export const LoginForm = () => {
   const { setAuth } = useContext(AuthContext);
@@ -25,6 +26,7 @@ export const LoginForm = () => {
 
   const [validEmail, setValidEmail] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -62,7 +64,7 @@ export const LoginForm = () => {
       );
       //   console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.access_token;
-      const refreshToken = response?.data?.refresh_token; 
+      const refreshToken = response?.data?.refresh_token;
       setAuth({
         email: formData.email,
         password: formData.password,
@@ -108,19 +110,28 @@ export const LoginForm = () => {
             ? `Email is incorrect. Please enter valid Email`
             : ``}
         </p>
-
-        <input
-          type="password"
-          id="password"
-          name="password"
-          className="login-input"
-          onChange={handleInputChange}
-          value={formData.password}
-          required
-          placeholder="Password"
-          aria-invalid={validPassword ? "false" : "true"}
-          aria-describedby="pwdnote"
-        />
+        <div className="psw-wrap">
+          <input
+            // type="password"
+            type={visible ? "test" : "password"}
+            id="password"
+            name="password"
+            className="login-input"
+            onChange={handleInputChange}
+            value={formData.password}
+            required
+            placeholder="Password"
+            aria-invalid={validPassword ? "false" : "true"}
+            aria-describedby="pwdnote"
+          />
+          <div onClick={() => setVisible(!visible)} >
+            {visible ? (
+              <FiEyeOff className="psw-icon" />
+            ) : (
+              <FiEye className="psw-icon" />
+            )}
+          </div>
+        </div>
         <p className="input-error">{validation.password}</p>
         <p id="pwdnote" className="psw-err">
           {!validPassword && formData.password
