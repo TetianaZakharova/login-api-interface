@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/login-api-interface/static/css/main.7b50f9cd.css",
-    "main.js": "/login-api-interface/static/js/main.de30a2c6.js",
-    "static/media/logo.svg": "/login-api-interface/static/media/logo.a754a2a3a04a48a7aca3082819c5314d.svg",
+    "main.css": "/login-api-interface/static/css/main.a77e1069.css",
+    "main.js": "/login-api-interface/static/js/main.880bab31.js",
+    "static/media/react-router.svg": "/login-api-interface/static/media/react-router.7f2e263f483c9280a8bd0af2e3c6a4a7.svg",
     "index.html": "/login-api-interface/index.html",
-    "main.7b50f9cd.css.map": "/login-api-interface/static/css/main.7b50f9cd.css.map",
-    "main.de30a2c6.js.map": "/login-api-interface/static/js/main.de30a2c6.js.map"
+    "main.a77e1069.css.map": "/login-api-interface/static/css/main.a77e1069.css.map",
+    "main.880bab31.js.map": "/login-api-interface/static/js/main.880bab31.js.map"
   },
   "entrypoints": [
-    "static/css/main.7b50f9cd.css",
-    "static/js/main.de30a2c6.js"
+    "static/css/main.a77e1069.css",
+    "static/js/main.880bab31.js"
   ]
 }
