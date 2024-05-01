@@ -15,7 +15,7 @@ export const Login = () => {
       <Delimeter />
       <LoginForm  />
       <p className="">
-        Is your company new to Qencode?
+        Is your company new to Emiorad?
         <span className="line">
           <a className="active-link" href="#">
             {" "}

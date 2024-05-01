@@ -147,7 +147,7 @@ export const LoginForm = () => {
           className="submit-btn"
           disabled={!validPassword || !validEmail ? true : false}
         >
-          Log in to Qencode
+          Log in to Emiorad
         </button>
       </form>
     </>
