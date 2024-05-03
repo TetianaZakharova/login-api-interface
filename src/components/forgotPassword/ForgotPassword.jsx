@@ -51,21 +51,21 @@ export const ForgotPassword = () => {
     e.preventDefault();
     const redirect_url = "https://auth-qa.qencode.com/password-set";
     try {
-      const response = await axios.post(
-        RESET_URL,
-        JSON.stringify({ email, redirect_url }),
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      console.log(JSON.stringify(response?.data));
-      const details = response?.data?.detail;
-      console.log(details);
-      setAuth({
-        email,
-        redirect_url,
-        details,
-      });
+      // const response = await axios.post(
+      //   RESET_URL,
+      //   JSON.stringify({ email, redirect_url }),
+      //   {
+      //     headers: { "Content-Type": "application/json" },
+      //   }
+      // );
+      // console.log(JSON.stringify(response?.data));
+      // const details = response?.data?.detail;
+      // console.log(details);
+      // setAuth({
+      //   email,
+      //   redirect_url,
+      //   details,
+      // });
       navigate("/password-set");
     } catch (err) {
       if (err.response?.status === 400) {

@@ -19,10 +19,13 @@ function App() {
         <Route index element={<RequireAuth><Home /></RequireAuth>}/>
         <Route path="login" element={<Login />} />
         <Route path="forgot-password" element={<ForgotPassword />} />
-        <Route path="password-set/:secret?/:token?" element={<RequireReset><SetPassword /></RequireReset>} />
+        <Route path="password-set/:secret?/:token?" element={<SetPassword />} />
+    
       </Route>
     </Routes>
   );
 }
 
 export default App;
+
+    // <Route path="password-set/:secret?/:token?" element={<RequireReset><SetPassword /></RequireReset>} />
